@@ -94,7 +94,7 @@ d3.gantt = function() {
 	     }) 
 	 .attr("y", 0)
 	 .attr("transform", rectTransform)
-	 .attr("height", function(d) { return y.rangeBand(); })
+	 .attr("height", function(d) { return y.rangeBand() - 20; })
 	 .attr("width", function(d) { 
 	     return (x(d.endDate) - x(d.startDate)); 
 	     });

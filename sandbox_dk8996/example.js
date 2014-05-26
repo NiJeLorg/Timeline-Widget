@@ -12,7 +12,7 @@ var tasks = [
 {
 "startDate":new Date("Sun Dec 09 04:56:32 EST 2014"),
 "endDate":new Date("Sun Dec 11 06:35:47 EST 2014"),
-"taskName":"Program 4",
+"taskName":"Program 6",
 "status":"IN-PROGRESS"
 },
 {
@@ -30,7 +30,7 @@ var tasks = [
 {
 "startDate":new Date("Sun Dec 13 05:00:06 EST 2014"),
 "endDate":new Date("Sun Dec 14 05:05:07 EST 2014"),
-"taskName":"Program 1",
+"taskName":"Program 6",
 "status":"IN-PROGRESS"
 },
 {
@@ -123,7 +123,7 @@ var tasks = [
 {
 "startDate":new Date("Sun Dec 09 08:00:03 EST 2014"),
 "endDate":new Date("Sun Dec 11 08:09:51 EST 2014"),
-"taskName":"Program 1",
+"taskName":"Program 6",
 "status":"COMPLETED"
 },
 {
