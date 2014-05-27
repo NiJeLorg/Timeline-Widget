@@ -24,7 +24,7 @@ d3.gantt = function() {
     var tickFormat = "%m/%d";
 
     var keyFunction = function(d) {
-	return d.startDate + d.taskName + d.dueDate;
+	return d.startDate + d.taskName + d.endDate;
     };
 
     var rectTransform = function(d) {
@@ -48,9 +48,9 @@ d3.gantt = function() {
 		return;
 	    }
 	    tasks.sort(function(a, b) {
-		return a.dueDate - b.dueDate;
+		return a.endDate - b.endDate;
 	    });
-	    timeDomainEnd = tasks[tasks.length - 1].dueDate;
+	    timeDomainEnd = tasks[tasks.length - 1].endDate;
 	    tasks.sort(function(a, b) {
 		return a.startDate - b.startDate;
 	    });
@@ -94,9 +94,9 @@ d3.gantt = function() {
 	     }) 
 	 .attr("y", 0)
 	 .attr("transform", rectTransform)
-	 .attr("height", function(d) { return y.rangeBand() - 20; })
+	 .attr("height", function(d) { return y.rangeBand(); })
 	 .attr("width", function(d) { 
-	     return (x(d.dueDate) - x(d.startDate)); 
+	     return (x(d.endDate) - x(d.startDate)); 
 	     });
 	 
 	 
@@ -135,14 +135,14 @@ d3.gantt = function() {
 	 .attr("transform", rectTransform)
 	 .attr("height", function(d) { return y.rangeBand(); })
 	 .attr("width", function(d) { 
-	     return (x(d.dueDate) - x(d.startDate)); 
+	     return (x(d.endDate) - x(d.startDate)); 
 	     });
 
         rect.transition()
           .attr("transform", rectTransform)
 	 .attr("height", function(d) { return y.rangeBand(); })
 	 .attr("width", function(d) { 
-	     return (x(d.dueDate) - x(d.startDate)); 
+	     return (x(d.endDate) - x(d.startDate)); 
 	     });
         
 	rect.exit().remove();
