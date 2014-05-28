@@ -125,13 +125,18 @@ function addTask() {
 	"taskName" : taskName,
 	"status" : taskStatusName
     });
+    
+// the challenge is first determine if the task shares date/time with other existing tasks; to get the baseline from the date/time and assure that the push generates the svg to stack atop tasks that share date/time 
 
     changeTimeDomain(timeDomainString);
     gantt.redraw(tasks);
 };
+
+// this function will be replaced by a click to link to a "form" to enter a new time dependant category related task; the adding of this will generate the svg to appear on the timeline, and be added as a data object
 
 function removeTask() {
     tasks.pop(); //removes the last task that was added
     changeTimeDomain(timeDomainString);
     gantt.redraw(tasks);
 };
+// this function will be replaced by a click to link to a "form" to mark the task as either complete or cancelled - the data object will be sent to another data table of completed or cancelled items, and it will be removed from the timeline view
