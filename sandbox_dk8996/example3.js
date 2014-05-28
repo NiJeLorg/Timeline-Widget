@@ -76,12 +76,10 @@ function changeTimeDomain(timeDomainString) {
 	format = "%a %H:%M";
 	gantt.timeDomain([ d3.time.day.offset(getEndDate(), -7), getEndDate() ]);
 	break;
-    default:
-	format = "%H:%M"
 	
     case "1month":
-	format = "%m %a";
-	gantt.timeDomain([ d3.time.day.offset(getEndDate(), -30), getEndDate() ]); // I need a formula for calculating if the month has 30 or 31 days 
+	format = "%b";
+	gantt.timeDomain([ d3.time.month.offset(getEndDate(), -1), getEndDate() ]); // I need a formula for calculating if the month has 30 or 31 days 
 	 // d3.time.month
 // 
 // Months (e.g., February 1, 2012 at 12:00 AM). Ranges between 28 and 31 days.
@@ -95,6 +93,8 @@ function changeTimeDomain(timeDomainString) {
 //   ["%B", function(d) { return d.getMonth(); }],
 //   ["%Y", function() { return true; }]
 // ]);
+	
+
 	break;
     default:
 	format = "%H:%M"
