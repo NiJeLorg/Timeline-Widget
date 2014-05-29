@@ -73,7 +73,7 @@ array	("timelineModel" => array( // of time dependent categories
 			 	"values" => array( 
 				 				array(
 				 					"label" => "YY-MM-DD", 
-				 					"value" => "$donorVisittArray" 
+				 					"value" => "$donorVisitArray" 
 				 				),
 				 				array( 
 				 				),
@@ -248,8 +248,17 @@ array	("timelineModel" => array( // of time dependent categories
 			 array(
 			 	"key"    => "Mitigation Plans",
 				"color"  => "#9c39f8",
-				"values" => $mitigationPlansArray
-								),
+				"values" => array( 
+				 				array(
+				 					"label" => "YY-MM-DD", 
+				 					"value" => "$mitigationPlansArray" 
+				 				),
+				 				array( 
+				 				),
+				 			);
+			),
+
+
 								
 			 array(
 			 	"key"    => "Donor/Initiative",
