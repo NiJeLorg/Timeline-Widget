@@ -8,8 +8,11 @@ array	("timelineModel" => array( // of time dependent categories
 				 					"value" => "$partnerAnnualReportArray" //php data syntax here but will change to ...?
 				 				),
 				 				array( // any more attributes? start time? completed time? description?
-				 					"label" => "",
-				 					"value" => "" 
+				 					"startdate" => "",
+				 					"duedate" => "" ,
+				 					"completeddate" => "",
+				 					"description" => "",
+				 					"notes" => "",
 
 				 				),
 				 			);
