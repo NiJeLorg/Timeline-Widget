@@ -24,7 +24,7 @@ var taskNames = [
 	"Program 6"
 ];
 tasks.sort(function(a, b) {
-    return a.endDate - b.endDate;  //?
+    return a.endDate - b.endDate;  //this sorting is for the logic of the minDate and maxDate - thanks, JD!
 });
 var maxDate = tasks[tasks.length - 1].endDate; // if there are 4 tasks, 0, 1, 2, // 3 - the length is 4; the maxDate is task[3] - this is the last date
 tasks.sort(function(a, b) {
