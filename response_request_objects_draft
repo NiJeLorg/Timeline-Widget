@@ -5,7 +5,7 @@ array	("timelineModel" => array( // of time dependent categories
 				 "values" => array( // attributes associated with the time dependent categories
 				 				array(
 				 					"label" => "YY-MM-DD", // or "program_id" ?
-				 					"value" => "$partnerAnnualReportArray" //php data syntax not needed?
+				 					"value" => "$partnerAnnualReportArray" //php data syntax here but will change to ...?
 				 				),
 				 				array( // any more attributes? start time? completed time? description?
 				 					"label" => "",
@@ -57,69 +57,228 @@ array	("timelineModel" => array( // of time dependent categories
 			 array(
 			 	"key"    => "Donor Reports",
 				"color"  => "#e23139",
-			    "values" => $donorReportArray
-								)
-							  array("key"    => "Donor Visit",
-								   "color"  => "#136731",
-								   "values" => $donorVisittArray
+			    "values" => array( 
+				 				array(
+				 					"label" => "YY-MM-DD", 
+				 					"value" => "$donorReportArray" 
+				 				),
+				 				array( 
+				 				),
+				 			);
+			),
+
+			 array(
+			 	"key"    => "Donor Visit",
+			 	"color"  => "#136731",
+			 	"values" => array( 
+				 				array(
+				 					"label" => "YY-MM-DD", 
+				 					"value" => "$donorVisittArray" 
+				 				),
+				 				array( 
+				 				),
+				 			);
+			),
+
+	
+
+			 array(
+			 	"key"    => "Partner Field Monitoring Visit",
+			  	"color"  => "#9b37a4",
+				"values" => array( 
+				 				array(
+				 					"label" => "YY-MM-DD", 
+				 					"value" => "$partnerFieldMonitoringVisitArray" 
+				 				),
+				 				array( 
+				 				),
+				 			);
+			),
+
+			array(
+				"key"    => "Partner Audit",
+				"color"  => "#79c9b9",
+				"values" => array( 
+				 				array(
+				 					"label" => "YY-MM-DD", 
+				 					"value" => "$partnerAuditArray" 
+				 				),
+				 				array( 
+				 				),
+				 			);
+			),
+
+
+								
+			array(
+				"key"    => "Baseline Survey",
+				"color"  => "#c2f0a9",
+				 "values" => array( 
+				 				array(
+				 					"label" => "YY-MM-DD", 
+				 					"value" => "$baselineSurveyArray" 
+				 				),
+				 				array( 
+				 				),
+				 			);
+			),
+
+				 
+								  
+			array(
+				"key"    => "Program Completion Survey",
+				"color"  => "#f4ae98",
+				"values" => array( 
+				 				array(
+				 					"label" => "YY-MM-DD", 
+				 					"value" => "$programCompletionSurveyArray" 
+				 				),
+				 				array( 
+				 				),
+				 			);
+			),
+
+				
+									
+			array(
+				"key"    => "Evaluation Survey",
+				"color"  => "#728f62",
+				"values" => array( 
+				 				array(
+				 					"label" => "YY-MM-DD", 
+				 					"value" => "$evaluationSurveyArray" 
+				 				),
+				 				array( 
+				 				),
+				 			);
+			),
+
+							 
+			array(
+				"key"    => "Partner Disbursement",
+				"color"  => "#be441e",
+				"values" => array( 
+				 				array(
+				 					"label" => "YY-MM-DD", 
+				 					"value" => "$partnerDisbursementArray" 
+				 				),
+				 				array( 
+				 				),
+				 			);
+			),
+
+	
+								
+			array(
+				"key"    => "Market Assessments",
+				"color"  => "#1f7a0a",
+				"values" => array( 
+				 				array(
+				 					"label" => "YY-MM-DD", 
+				 					"value" => "$marketAssessmentsArray" 
+				 				),
+				 				array( 
+				 				),
+				 			);
+			),
+
+	
+							  
+			array(
+				"key"    => "Partner Documentation",
+				"color"  => "#89b3d3",
+				"values" => array( 
+				 				array(
+				 					"label" => "YY-MM-DD", 
+				 					"value" => "$partnerDocumentationArray" 
+				 				),
+				 				array( 
+				 				),
+				 			);
+			),
+
+				
+
+								
+			array(
+				"key"    => "Convenings",
+				"color"  => "#d486a0",
+				"values" => array( 
+				 				array(
+				 					"label" => "YY-MM-DD", 
+				 					"value" => "$conveningsArray" 
+				 				),
+				 				array( 
+				 				),
+				 			);
+			),
+
+	
+							  
+			 array(
+			 	"key"    => "Event",
+				"color"  => "#206498",
+				"values" => array( 
+				 				array(
+				 					"label" => "YY-MM-DD", 
+				 					"value" => "$eventArray" 
+				 				),
+				 				array( 
+				 				),
+				 			);
+			),
+
+				
+									
+			 array(
+			 	"key"    => "WaterPortal Updates",
+				"color"  => "#e82a69",
+				"values" => array( 
+				 				array(
+				 					"label" => "YY-MM-DD", 
+				 					"value" => "$parnerMonthlyReportArray" 
+				 				),
+				 				array( 
+				 				),
+				 			);
+			),
+
+
+							  
+			 array(
+			 	"key"    => "Mitigation Plans",
+				"color"  => "#9c39f8",
+				"values" => $mitigationPlansArray
 								),
-							  array("key"    => "Partner Field Monitoring Visit",
-								   "color"  => "#9b37a4",
-								   "values" => $partnerFieldMonitoringVisitArray
-							  ),
-							  array("key"    => "Partner Audit",
-								   "color"  => "#79c9b9",
-								   "values" => $partnerAuditArray
-								),
-							  array("key"    => "Baseline Survey",
-								   "color"  => "#c2f0a9",
-								   "values" => $baselineSurveyArray
-							  ),
-							  array("key"    => "Program Completion Survey",
-								   "color"  => "#f4ae98",
-								   "values" => $programCompletionSurveyArray
-								),
-							  array("key"    => "Evaluation Survey",
-								   "color"  => "#728f62",
-								   "values" => $evaluationSurveyArray
-							  ),
-							  array("key"    => "Partner Disbursement",
-								   "color"  => "#be441e",
-								   "values" => $partnerDisbursementArray
-								),
-							  array("key"    => "Market Assessments",
-								   "color"  => "#1f7a0a",
-								   "values" => $marketAssessmentsArray
-							  ),
-							  array("key"    => "Partner Documentation",
-								   "color"  => "#89b3d3",
-								   "values" => $partnerDocumentationArray
-								),
-							  array("key"    => "Convenings",
-								   "color"  => "#d486a0",
-								   "values" => $conveningsArray
-							  ),
-							  array("key"    => "Event",
-								   "color"  => "#206498",
-								   "values" => $eventArray
-								),
-							  array("key"    => "WaterPortal Updates",
-								   "color"  => "#e82a69",
-								   "values" => $parnerMonthlyReportArray
-							  ),
-							  array("key"    => "Mitigation Plans",
-								   "color"  => "#9c39f8",
-								   "values" => $mitigationPlansArray
-								),
-							  array("key"    => "Donor/Initiative",
-								   "color"  => "#ccae27",
-								   "values" => $donorInitiativeArray
-							  ),
-							  array("key"    => "General",
-								   "color"  => "#6e27cc",
-								   "values" => $generalArray
-								),
-					  ),
+								
+			 array(
+			 	"key"    => "Donor/Initiative",
+				"color"  => "#ccae27",
+				 "values" => array( 
+				 				array(
+				 					"label" => "YY-MM-DD", 
+				 					"value" => "$donorInitiativeArray" 
+				 				),
+				 				array( 
+				 				),
+				 			);
+			),
+
+
+							  
+			 array(
+			 	"key"    => "General",
+				 "color"  => "#6e27cc",
+				 "values" => array( 
+				 				array(
+				 					"label" => "YY-MM-DD", 
+				 					"value" => "$generalArray" 
+				 				),
+				 				array( 
+				 				),
+				 			);
+
+			),
 
 		
 			"widgetName" => "My Timeline"
