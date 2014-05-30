@@ -19,20 +19,8 @@ html,body,#wrapper {
 	fill: #33b5e5;
 }
 
-.bar-partner-annual {
-	fill: #1A9850;
-}
-
-.bar-partner-quaerterly {
-	fill: #FC8D59;
-}
-
-.bar-partner-monthly {
-	fill: #f29196;
-}
-
-.bar-partner-weekly {
-	fill: #0c6dda;
+.bar-partnerReports {
+	fill: #00873a;
 }
 
 
@@ -41,10 +29,14 @@ html,body,#wrapper {
 }
 
 .bar-donorVisit {
-	fill: #136731;
+	fill: #33b5e5;
 }
 
-.bar-donorFieldVisit {
+.bar-donorInitiative {
+	fill: #ccae27;
+}
+
+.bar-partnerFieldVisit {
 	fill: #9b37a4;
 }
 
@@ -53,15 +45,15 @@ html,body,#wrapper {
 }
 
 .bar-baselineSurvey {
-	fill: #c2f0a9;
+	fill: #981481;
 }
 
-.bar-completionSurvey {
-	fill: #f4ae98;
+.bar-endlineSurvey {
+	fill: #ef25a0;
 }
 
-.bar-evaluationSurvey {
-	fill: #728f62;
+.bar-postlineSurvey {
+	fill: #b38c39;
 }
 
 .bar-partnerDisbursement {
@@ -70,17 +62,13 @@ html,body,#wrapper {
 
 
 .bar-marketAssessments {
-	fill: #1f7a0a;
+	fill: #0076c1;
 }
 
-
-.bar-partnerDocumentation {
-	fill: #89b3d3;
-}
 
 
 .bar-convenings {
-	fill: #d486a0;
+	fill: #3ce5f0;
 }
 
 
@@ -94,10 +82,6 @@ html,body,#wrapper {
 
 .bar-mitigationPlans {
 	fill: #9c39f8;
-}
-
-.bar-donorInitiative {
-	fill: #ccae27;
 }
 
 .bar-general {

@@ -9,9 +9,9 @@ var tasks = [
 		"endDate":new Date("Dec 10 02:36:45 EST 2014"),
 		//"completionDate":new Date("Dec 11 02:36:45 EST 2014"),
 		"taskName":"Program 3",
-		"status":"Partner Report"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		"status":"Partner Reports"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		},
 		
 		{
@@ -19,9 +19,9 @@ var tasks = [
 		"endDate":new Date("Dec 11 06:35:47 EST 2014"),
 		//"completionDate":new Date("Dec 13 02:36:45 EST 2014"),
 		"taskName":"Program 6",
-		"status":"Mitigation Plans"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		"status":"Donor Report"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		},
 		
 		{
@@ -29,9 +29,9 @@ var tasks = [
 		"endDate":new Date("Dec 12 06:34:04 EST 2014"),
 		//"completionDate":new Date("Dec 14 02:36:45 EST 2014"),
 		"taskName":"Program 1",
-		"status":"Donor Initiative"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		"status":"Donor Initiative Disbursements"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		},
 		
 		{
@@ -39,9 +39,9 @@ var tasks = [
 		"endDate":new Date("Dec 14 06:21:22 EST 2014"),
 		//"completionDate":new Date("Dec 15 02:36:45 EST 2014"),		
 		"taskName":"Program 2",
-		"status":"General"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		"status":"Donor Initiative Disbursements"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		},
 		
 		{
@@ -50,8 +50,8 @@ var tasks = [
 		//"completionDate":new Date("Dec 16 02:36:45 EST 2014"),		
 		"taskName":"Program 6",
 		"status":"WaterPortal Updates"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		
 		},
 		
@@ -61,8 +61,8 @@ var tasks = [
 		//"completionDate":new Date("Dec 14 02:36:45 EST 2014"),		
 		"taskName":"Program 2",
 		"status":"General"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		},
 		
 		{
@@ -70,9 +70,9 @@ var tasks = [
 		"endDate":new Date("Dec 13 04:48:56 EST 2014"),
 		//"completionDate":new Date("Dec 17 02:36:45 EST 2014"),
 		"taskName":"Program 5",
-		"status":"Program Completion Survey"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		"status":"End-line Survey"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		},
 		
 		{
@@ -80,9 +80,9 @@ var tasks = [
 		"endDate":new Date("Dec 14 03:58:43 EST 2014"),
 		//"completionDate":new Date("Dec 15 02:36:45 EST 2014"),
 		"taskName":"Program 3",
-		"status":"Partner Disbursement"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		"status":"Donor Initiative Disbursements"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		},
 		
 		{
@@ -91,8 +91,8 @@ var tasks = [
 		//"completionDate":new Date("Dec 11 02:36:45 EST 2014"),
 		"taskName":"Program 4",
 		"status":"Convenings"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		},
 		
 		{
@@ -101,8 +101,8 @@ var tasks = [
 		//"completionDate":new Date("Dec 18 02:36:45 EST 2014"),
 		"taskName":"Program 1",
 		"status":"Market Assessments"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		},
 		
 		{
@@ -110,9 +110,9 @@ var tasks = [
 		"endDate":new Date("Dec 15 02:51:42 EST 2014"),
 		//"completionDate":new Date("Dec 19 02:36:45 EST 2014"),
 		"taskName":"Program 2",
-		"status":"Evaluation Survey"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		"status":"Donor Report"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		},
 		
 		{
@@ -120,9 +120,9 @@ var tasks = [
 		"endDate":new Date("Dec 14 01:33:42 EST 2014"),
 		//"completionDate":new Date("Dec 17 02:36:45 EST 2014"),
 		"taskName":"Program 5",
-		"status":"Partner Annual Reports"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		"status":"Partner Reports"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		},
 		
 		{
@@ -130,9 +130,9 @@ var tasks = [
 		"endDate":new Date("Dec 14 00:54:56 EST 2014"),
 		//"completionDate":new Date("Dec 18 02:36:45 EST 2014"),
 		"taskName":"Program 3",
-		"status":"Partner Quarterly Reports"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		"status":"WaterPortal Updates"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		},
 		
 		{
@@ -141,8 +141,8 @@ var tasks = [
 		//"completionDate":new Date("Dec 19 02:36:45 EST 2014"),
 		"taskName":"Program 1",
 		"status":"Mitigation Plans"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		},
 		
 		{
@@ -150,9 +150,9 @@ var tasks = [
 		"endDate":new Date("Dec 16 07:43:22 EST 2014"),
 		//"completionDate":new Date("Dec 19 02:36:45 EST 2014"),
 		"taskName":"Program 2",
-		"status":"Partner Monthly Reports"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		"status":"Partner Reports"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		},
 		
 		{
@@ -160,9 +160,9 @@ var tasks = [
 		"endDate":new Date("Dec 14 07:05:07 EST 2014"),
 		//"completionDate":new Date("Dec 16 02:36:45 EST 2014"),
 		"taskName":"Program 1",
-		"status":"Partner Weekly Reports"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		"status":"Donor Report"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		},
 		
 		{
@@ -171,8 +171,8 @@ var tasks = [
 		//"completionDate":new Date("Dec 13 02:36:45 EST 2014"),
 		"taskName":"Program 2",
 		"status":"Mitigation Plans"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		},
 		
 		{
@@ -181,18 +181,18 @@ var tasks = [
 		//"completionDate":new Date("Dec 21 02:36:45 EST 2014"),
 		"taskName":"Program 5",
 		"status":"Partner Audit"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		}
 		,
 		{
 		"startDate":new Date("Dec 15 08:27:35 EST 2014"),
 		"endDate":new Date("Dec 18 08:58:43 EST 2014"),
 		//"completionDate":new Date("Dec 20 02:36:45 EST 2014"),
-		"taskName":"Program 3",
-		"status":"Donor Reports"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		"taskName":"Program 5",
+		"status":"WaterPortal Updates"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		
 		},
 		
@@ -200,9 +200,9 @@ var tasks = [
 		"endDate":new Date("Dec 18 08:46:35 EST 2014"),
 		//"completionDate":new Date("Dec 19 02:36:45 EST 2014"),
 		"taskName":"Program 4",
-		"status":"Mitigation Plans"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		"status":"Post-line Survey"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		}
 		,
 		{
@@ -211,8 +211,8 @@ var tasks = [
 		//"completionDate":new Date("Dec 15 02:36:45 EST 2014"),
 		"taskName":"Program 6",
 		"status":"Baseline Survey"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		}
 		,
 		{
@@ -221,8 +221,8 @@ var tasks = [
 		//"completionDate":new Date("Dec 22 02:36:45 EST 2014"),
 		"taskName":"Program 2",
 		"status":"Partner Disbursement"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		}
 		,
 		{
@@ -230,9 +230,9 @@ var tasks = [
 		"endDate":new Date("Dec 20 11:33:42 EST 2014"),
 		//"completionDate":new Date("Dec 21 02:36:45 EST 2014"),
 		"taskName":"Program 5",
-		"status":"Program Completion Survey"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		"status":"End-line Survey"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		}
 		,
 		{
@@ -240,9 +240,9 @@ var tasks = [
 		"endDate":new Date("Dec 20 12:54:56 EST 2014"),
 		//"completionDate":new Date("Dec 21 02:36:45 EST 2014"),
 		"taskName":"Program 3",
-		"status":"Donor Field Monitoring Visit"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		"status":"Donor Visit"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		}
 		,
 		{
@@ -250,33 +250,29 @@ var tasks = [
 		"endDate":new Date("Dec 09 00:26:13 EST 2014"),
 		//"completionDate":new Date("Dec 11 02:36:45 EST 2014"),
 		"taskName":"Program 4",
-		"status":"Donor Reports"
-		//"description" : "Description for Partner Report",
-		//"notes" : "Notes for Partner Report"
+		"status":"Donor Report"
+		//"description" : "Description",
+		//"notes" : "Notes"
 		}
 		
 ];
 
 var taskStatus = {
-    "Partner Annual Reports" : "bar-partner-annual",
-    "Partner Quarterly Reports" : "bar-partner-quaerterly",
-    "Partner Monthly Reports" : "bar-partner-monthly",
-    "Partner Weekly Reports" : "bar-partner-weekly",			 
-    "Donor Reports" : "bar-donorReport",
+    "Partner Reports" : "bar-partnerReports",
+    "Donor Report" : "bar-donorReport",
     "Donor Visit" 	: "bar-donorVisit",
-    "Donor Field Monitoring Visit" : "bar-donorFieldVisit",
+    "Donor Initiative Disbursements": "bar-donorInitiative",
+    "Parntner Field Monitoring Visit": "partnerFieldVisit",
     "Partner Audit": "bar-partnerAudit",
     "Baseline Survey": "bar-baselineSurvey",
-    "Program Completion Survey": "bar-completionSurvey",
-    "Evaluation Survey": "bar-evaluationSurvey",
+    "End-line Survey": "bar-endlineSurvey",
+    "Post-line Survey": "bar-postlineSurvey",
     "Partner Disbursement": "bar-partnerDisbursement",
     "Market Assessments": "bar-marketAssessments",
-    "Partner Documentation": "bar-partnerDocumentation",
     "Convenings" : "bar-convenings",
     "Event" : "bar-event",
     "WaterPortal Updates" : "bar-waterPortalUpdates",
     "Mitigation Plans": "bar-mitigationPlans",
-    "Donor Initiative": "bar-donorInitiative",
     "General" : "bar-general"
     				
 };

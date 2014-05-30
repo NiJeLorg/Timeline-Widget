@@ -1,297 +1,117 @@
-array	("timelineModel" => array( // of time dependent categories
-			array(
-				 "key"    => "Partner Annual Reports",
-				 "color"  => "#1A9850", // color of svg bar generated when use creates a task based on the time dependent category
-				 "values" => array( // attributes associated with the time dependent categories
-				 				array(
-				 					"label" => "YY-MM-DD", // or "program_id" ?
-				 					"value" => "$partnerAnnualReportArray" //php data syntax here but will change to ...?
-				 				),
-				 				array( // any more attributes? start time? completed time? description?
-				 					"startdate" => "",
-				 					"duedate" => "" ,
-				 					"completeddate" => "",
-				 					"description" => "",
-				 					"notes" => "",
+//requesting data for a timeline (widget_type is “timelineModel”)
 
-				 				),
-				 			);
-			),
-				 
-			array(
-				 "key"    => "Partner Quarterly Reports",
-				 "color"  => "#FC8D59",
-				 "values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$partnerQuarterlyReportArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
-				 
-			array(
-				 "key"    => "Partner Monthly Reports",
-				 "color"  => "#f29196",
-				 "values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$partnerMonthlyReportArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
-				 
-			array(
-				 "key"    => "Partner Weekly Reports",
-				 "color"  => "#0c6dda",
-				 "values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$partnerWeeklyReportArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
-				
-			 array(
-			 	"key"    => "Donor Reports",
-				"color"  => "#e23139",
-			    "values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$donorReportArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
-
-			 array(
-			 	"key"    => "Donor Visit",
-			 	"color"  => "#136731",
-			 	"values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$donorVisitArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
-
-	
-
-			 array(
-			 	"key"    => "Partner Field Monitoring Visit",
-			  	"color"  => "#9b37a4",
-				"values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$partnerFieldMonitoringVisitArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
-
-			array(
-				"key"    => "Partner Audit",
-				"color"  => "#79c9b9",
-				"values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$partnerAuditArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
+//The returned object has a bar with width of a span of time on an x y axis for //Program and Time range.
+//The color of the bar is also set here (one of 16 time dependent categories).
+//The values are where the key/value pairs for the actual data are set. 
 
 
-								
-			array(
-				"key"    => "Baseline Survey",
-				"color"  => "#c2f0a9",
-				 "values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$baselineSurveyArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
-
-				 
-								  
-			array(
-				"key"    => "Program Completion Survey",
-				"color"  => "#f4ae98",
-				"values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$programCompletionSurveyArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
-
-				
-									
-			array(
-				"key"    => "Evaluation Survey",
-				"color"  => "#728f62",
-				"values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$evaluationSurveyArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
-
-							 
-			array(
-				"key"    => "Partner Disbursement",
-				"color"  => "#be441e",
-				"values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$partnerDisbursementArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
-
-	
-								
-			array(
-				"key"    => "Market Assessments",
-				"color"  => "#1f7a0a",
-				"values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$marketAssessmentsArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
-
-	
-							  
-			array(
-				"key"    => "Partner Documentation",
-				"color"  => "#89b3d3",
-				"values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$partnerDocumentationArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
-
-				
-
-								
-			array(
-				"key"    => "Convenings",
-				"color"  => "#d486a0",
-				"values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$conveningsArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
-
-	
-							  
-			 array(
-			 	"key"    => "Event",
-				"color"  => "#206498",
-				"values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$eventArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
-
-				
-									
-			 array(
-			 	"key"    => "WaterPortal Updates",
-				"color"  => "#e82a69",
-				"values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$parnerMonthlyReportArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
+//Questions:  Is the key the program ID ? 
+//Is the value the array for the time dependent task?
+//Is this the correct syntax? ie "values" => $partnerReportArray
 
 
-							  
-			 array(
-			 	"key"    => "Mitigation Plans",
-				"color"  => "#9c39f8",
-				"values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$mitigationPlansArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
+REQUEST OBJECT:
+
+            $req = array();
+            $req['object']       = "widget"; 
+            $req['widget_type']  = "timelineModel"; 
+            $req['activity']     = "program"; 
+            $req['action']       = "disbursements"; 
+            $req['date_from']    = ""; 
+            $req['date_to']      = ""; 
+            $req['programid']    = $pid; 
+            $req['user']         = $username; 
+            
+            
+RESPONSE OBJECT:
 
 
-								
-			 array(
-			 	"key"    => "Donor/Initiative",
-				"color"  => "#ccae27",
-				 "values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$donorInitiativeArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
-			),
+array	("timelineModel" => array(
+
+		array("key"    => "Program",
+              "values" => array(
+
+					array("key"    => "Partner Reports",
+             			 "color"  => "#00873a",
+              			  "values" => $partnerReportArray
+         				),
+					),
+
+etc ... 
 
 
-							  
-			 array(
-			 	"key"    => "General",
-				 "color"  => "#6e27cc",
-				 "values" => array( 
-				 				array(
-				 					"label" => "YY-MM-DD", 
-				 					"value" => "$generalArray" 
-				 				),
-				 				array( 
-				 				),
-				 			);
+or:
 
-			),
 
-		
-			"widgetName" => "My Timeline"
-	   ); 
+array	("timelineModel" => array(
+
+		array("key"    => "Partner Reports",
+              "color"  => "#00873a",
+              "values" => $partnerReportArray
+         ),
+       	array("key"    => "Donor Report",
+			  "color"  => "#e23139",
+			  "values" => $donorReportArray
+		 ),
+		array("key"    => "Donor Visit",
+	 		  "color"  => "#33b5e5",
+			  "values" => $donorVisitArray
+		),	
+		array("key"    => "Donor Initiative Disb ursements",
+			  "color"  => "#ccae27",
+			  "values" => $donorInitiativeArray
+		),
+		array("key"    => "Partner Field Monitoring Visit",
+			  "color"  => "#9b37a4",
+		 	  "values" => $partnerFieldMonitoringVisitArray
+		),
+		array("key"    => "Partner Audit",
+			  "color"  => "#79c9b9",
+		      "values" => $partnerAuditArray
+		),
+		array("key"    => "Baseline Survey",
+		 	  "color"  => "#981481",
+		      "values" => $baselineSurveyArray
+		),
+		array("key"    => "End-line Survey",
+			  "color"  => "#ef25a0",
+		      "values" => $endlineSurveyArray
+		),
+		array("key"    => "Post-line Survey",
+			  "color"  => "#b38c39",
+			  "values" => $postlineSurveyArray
+		),
+		array("key"    => "Partner Disbursement",
+			  "color"  => "#be441e",
+			  "values" => $partnerDisbursementArray
+		),
+		array("key"    => "Market Assessments",
+			  "color"  => "#0076c1",
+		 	  "values" => $marketAssessmentsArray
+		),
+		array("key"    => "Convenings",
+			  "color"  => "#3ce5f0",
+		 	  "values" => $conveningsArray
+		),
+		array("key"    => "Event",
+			  "color"  => "#206498",
+		 	  "values" => $eventArray
+		),
+		array("key"    => "WaterPortal Updates",
+			  "color"  => "#e82a69",
+		 	  "values" => $parnerMonthlyReportArray
+	 ),
+		array("key"    => "Mitigation Plans",
+			  "color"  => "#9c39f8",
+	 		  "values" => $mitigationPlansArray
+	),
+
+		array("key"    => "General",
+		      "color"  => "#6e27cc",
+	 		   "values" => $generalArray
+ ),
+	),
+
+                                   
+ "widgetName" => "My Timeline"
+                   );
