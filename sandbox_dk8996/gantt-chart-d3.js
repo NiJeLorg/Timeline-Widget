@@ -18,6 +18,7 @@ d3.gantt = function() {
     var timeDomainMode = FIT_TIME_DOMAIN_MODE;// fixed or fit
     var taskTypes = [];
     var taskStatus = [];
+    var timeDependentCategory = [];
     var height = document.body.clientHeight - margin.top - margin.bottom-5;
     var width = document.body.clientWidth - margin.right - margin.left-5;
 
@@ -193,7 +194,14 @@ d3.gantt = function() {
 	taskStatus = value;
 	return gantt;
     };
-
+    
+    gantt.timeDependentCategory = function(value) {
+	if (!arguments.length)
+	    return timeDependentCategory;
+	timeDependentCategory = value;
+	return gantt;
+    };
+    
     gantt.width = function(value) {
 	if (!arguments.length)
 	    return width;
