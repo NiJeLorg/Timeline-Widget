@@ -19,23 +19,89 @@ html,body,#wrapper {
 	fill: #33b5e5;
 }
 
-.bar-completed {
-	fill: #33b5e5;
+.bar-partner-annual {
+	fill: #1A9850;
 }
 
-.bar-ongoing {
-	fill: #CC0000;
+.bar-partner-quaerterly {
+	fill: #FC8D59;
 }
 
-.bar-in-progress {
-	fill: #669900;
+.bar-partner-monthly {
+	fill: #f29196;
 }
 
-.bar-recurring {
-	fill: #ffbb33;
+.bar-partner-weekly {
+	fill: #0c6dda;
 }
 
-.bar-on-hold {
-	fill: #33bb33;
+
+.bar-donorReport {
+	fill: #e23139;
 }
+
+.bar-donorVisit {
+	fill: #136731;
+}
+
+.bar-donorFieldVisit {
+	fill: #9b37a4;
+}
+
+.bar-partnerAudit {
+	fill: #79c9b9;
+}
+
+.bar-baselineSurvey {
+	fill: #c2f0a9;
+}
+
+.bar-completionSurvey {
+	fill: #f4ae98;
+}
+
+.bar-evaluationSurvey {
+	fill: #728f62;
+}
+
+.bar-partnerDisbursement {
+	fill: #be441e;
+}
+
+
+.bar-marketAssessments {
+	fill: #1f7a0a;
+}
+
+
+.bar-partnerDocumentation {
+	fill: #89b3d3;
+}
+
+
+.bar-convenings {
+	fill: #d486a0;
+}
+
+
+.bar-event {
+	fill: #206498;
+}
+
+.bar-waterPortalUpdates {
+	fill: #e82a69;
+}
+
+.bar-mitigationPlans {
+	fill: #9c39f8;
+}
+
+.bar-donorInitiative {
+	fill: #ccae27;
+}
+
+.bar-general {
+	fill: #6e27cc;
+}
+
 
