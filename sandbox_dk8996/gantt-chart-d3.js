@@ -92,7 +92,10 @@ d3.gantt = function() {
 	 .attr("class", function(d){ 
 	     if(taskStatus[d.status] == null){ return "bar";}
 	     return taskStatus[d.status];
-	     }) 
+	     }
+	     
+	     
+	     ) 
 	 .attr("y", 0)
 	 .attr("transform", rectTransform)
 	 .attr("height", function(d) { return y.rangeBand(); })
