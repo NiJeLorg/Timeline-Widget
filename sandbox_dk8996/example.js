@@ -24,7 +24,7 @@ var tasks = [
 		"status":"Partner Reports"
 		//"description" : "Description",
 		//"notes" : "Notes"
-		},
+		}
 		
 		
 		
