@@ -96,6 +96,8 @@ html,body,#wrapper {
 	box-shadow: 2px 2px 1px #888;
 }
 
+
+
 			#tooltip {
 				position: absolute;
 				width: 200px;
@@ -148,14 +150,18 @@ div.tooltip {
 #container{
   margin: 0 auto;
   position: relative;
+  /*
   width:800px;
+  */
   overflow: visible;
 }
 
 
   .svg {
+      /*
     width:800px;
     height:400px;
+    */
     overflow: visible;
     position:absolute;
 }
@@ -171,12 +177,12 @@ div.tooltip {
 
 
 #tag {
-  color: white;
-  background: #FA283D;
-  width: 150px;
+  color: black;
+  background: white;
+  width: 170px;
   position: absolute;
   display: none;
-  padding:3px 6px;
+  padding:6px 8px;
   margin-left: -80px;
   font-size: 11px;
 }
@@ -192,6 +198,6 @@ div.tooltip {
   position: absolute;
   width: 0;
   border-width: 10px;
-  border-bottom-color: #FA283D;
+  border-bottom-color: white;
   top: -20px;
 }
