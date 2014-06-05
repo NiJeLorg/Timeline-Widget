@@ -107,7 +107,7 @@ d3.gantt = function() {
 	             return (x(d.endDate) - x(d.startDate)); 
 	         })
              .on("mouseover", function(d) { 
-                  tooltip.html(d.status)  
+                  tooltip.html("<b>" + d.status + "</b>" + "<br />" + "Start:" +  d.startDate + "<br />" + "End:" + d.endDate +"<br />" + "Completed:" + d.completionDate  + "<br />"+ d.description + "<br />" +  d.notes)  
                       .style("top", (d3.event.pageY-10)+"px")
                       .style("left",(d3.event.pageX+10)+"px");
                   tooltip.transition()        
