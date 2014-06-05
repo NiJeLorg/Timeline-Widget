@@ -8,7 +8,7 @@ var tasks = [
 		
 				
 		{
-		"startDate":new Date("Dec 09 01:36:45 EST 2014"),
+		"startDate":new Date("Dec 09 12:36:45 EST 2014"),
 		"endDate":new Date("Dec 10 02:36:45 EST 2014"),
 		//"completionDate":new Date("Dec 13 02:36:45 EST 2014"),
 		"taskName":"Program 3",
@@ -17,7 +17,7 @@ var tasks = [
 		//"notes" : "Notes"
 		},
 		 {
-		"startDate":new Date("Dec 10 01:36:45 EST 2014"),
+		"startDate":new Date("Dec 09 01:36:45 EST 2014"),
 		"endDate":new Date("Dec 10 02:36:45 EST 2014"),
 		//"completionDate":new Date("Dec 11 02:36:45 EST 2014"),
 		"taskName":"Program 3",
