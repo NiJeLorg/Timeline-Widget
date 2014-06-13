@@ -201,3 +201,9 @@ div.tooltip {
   border-bottom-color: white;
   top: -20px;
 }
+
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .25;
+  shape-rendering: crispEdges;
+}

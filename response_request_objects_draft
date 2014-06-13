@@ -22,95 +22,43 @@ REQUEST OBJECT:
             $req['programid']    = $pid; 
             $req['user']         = $username; 
             
-            
+    --in progress        
 RESPONSE OBJECT:
 
 
-array	("timelineModel" => array(
-
-		array("key"    => "Program",
-              "values" => array(
-
-					array("key"    => "Partner Reports",
-             			 "color"  => "#00873a",
-              			  "values" => $partnerReportArray
-         				),
-					),
-
-etc ... 
-
-
-or:
-
-
-array	("timelineModel" => array(
-
-		array("key"    => "Partner Reports",
-              "color"  => "#00873a",
-              "values" => $partnerReportArray
-         ),
-       	array("key"    => "Donor Report",
-			  "color"  => "#e23139",
-			  "values" => $donorReportArray
-		 ),
-		array("key"    => "Donor Visit",
-	 		  "color"  => "#33b5e5",
-			  "values" => $donorVisitArray
-		),	
-		array("key"    => "Donor Initiative Disb ursements",
-			  "color"  => "#ccae27",
-			  "values" => $donorInitiativeArray
-		),
-		array("key"    => "Partner Field Monitoring Visit",
-			  "color"  => "#9b37a4",
-		 	  "values" => $partnerFieldMonitoringVisitArray
-		),
-		array("key"    => "Partner Audit",
-			  "color"  => "#79c9b9",
-		      "values" => $partnerAuditArray
-		),
-		array("key"    => "Baseline Survey",
-		 	  "color"  => "#981481",
-		      "values" => $baselineSurveyArray
-		),
-		array("key"    => "End-line Survey",
-			  "color"  => "#ef25a0",
-		      "values" => $endlineSurveyArray
-		),
-		array("key"    => "Post-line Survey",
-			  "color"  => "#b38c39",
-			  "values" => $postlineSurveyArray
-		),
-		array("key"    => "Partner Disbursement",
-			  "color"  => "#be441e",
-			  "values" => $partnerDisbursementArray
-		),
-		array("key"    => "Market Assessments",
-			  "color"  => "#0076c1",
-		 	  "values" => $marketAssessmentsArray
-		),
-		array("key"    => "Convenings",
-			  "color"  => "#3ce5f0",
-		 	  "values" => $conveningsArray
-		),
-		array("key"    => "Event",
-			  "color"  => "#206498",
-		 	  "values" => $eventArray
-		),
-		array("key"    => "WaterPortal Updates",
-			  "color"  => "#e82a69",
-		 	  "values" => $parnerMonthlyReportArray
-	 ),
-		array("key"    => "Mitigation Plans",
-			  "color"  => "#9c39f8",
-	 		  "values" => $mitigationPlansArray
-	),
-
-		array("key"    => "General",
-		      "color"  => "#6e27cc",
-	 		   "values" => $generalArray
- ),
-	),
+array(
+"key"        => "Partner Reports",
+"values"     => array(
+            array(
+                "label"    => "YYYY-MM-DD",
+                "value"    => startDate
+            ),
+            array(
+                "label"    => "YYYY-MM-DD",
+                "value"    => dueDate
+            ),
+            array(
+                "label"    => "YYYY-MM-DD",
+                "value"    => completionDate
+            )...
+           ),
+     ),
+array(
+"key"        => "Partner Reports",
+"values"     => array(
+                "label"    => "taskNames",
+                "value"    => X,
+            ),
+            array(
+                "label"    => "taskStatus",
+                "value"    => Y
+            ),
+            array(
+                "label"    => "task",
+                "value"    => Z
+            )...
+           ),
+     ),
 
                                    
  "widgetName" => "My Timeline"

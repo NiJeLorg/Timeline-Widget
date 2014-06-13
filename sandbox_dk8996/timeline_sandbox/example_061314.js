@@ -8,9 +8,9 @@ var tasks = [
 		
 		
 	{
-"startDate":new Date("Dec 09 01:36:45 EST 2014"),
-"endDate":new Date("Dec 10 02:36:45 EST 2014"),
-"completionDate":new Date("Dec 11 02:36:45 EST 2014"),
+"startDate":new Date("Dec 09 2014"),
+"endDate":new Date("Dec 10 2014"),
+"completionDate":new Date("Dec 11 2014"),
 "taskName":"Program 3",
 "status":"WaterPortal Updates",
 "description" : "Description",
@@ -19,9 +19,9 @@ var tasks = [
 ,
 
 {
-"startDate":new Date("Dec 10 04:56:32 EST 2014"),
-"endDate":new Date("Dec 11 06:35:47 EST 2014"),
-"completionDate":new Date("Dec 13 02:36:45 EST 2014"),
+"startDate":new Date("Dec 10 2014"),
+"endDate":new Date("Dec 11 2014"),
+"completionDate":new Date("Dec 13 2014"),
 "taskName":"Program 6",
 "status":"Donor Report",
 "description" : "Description",
@@ -30,9 +30,9 @@ var tasks = [
 ,
 
 {
-"startDate":new Date("Dec 9 06:29:53 EST 2014"),
-"endDate":new Date("Dec 10 06:34:04 EST 2014"),
-"completionDate":new Date("Dec 14 02:36:45 EST 2014"),
+"startDate":new Date("Dec 9 2014"),
+"endDate":new Date("Dec 10 2014"),
+"completionDate":new Date("Dec 14 2014"),
 "taskName":"Program 1",
 "status":"Event",
 "description" : "Description",
@@ -41,9 +41,9 @@ var tasks = [
 ,
 
 {
-"startDate":new Date("Dec 13 05:35:21 EST 2014"),
-"endDate":new Date("Dec 14 06:21:22 EST 2014"),
-"completionDate":new Date("Dec 15 02:36:45 EST 2014"),
+"startDate":new Date("Dec 13 2014"),
+"endDate":new Date("Dec 14 2014"),
+"completionDate":new Date("Dec 15 2014"),
 "taskName":"Program 2",
 "status":"Donor Initiative Disbursements",
 "description" : "Description",
@@ -52,9 +52,9 @@ var tasks = [
 ,
 
 {
-"startDate":new Date("Dec 13 05:00:06 EST 2014"),
-"endDate":new Date("Dec 14 05:05:07 EST 2014"),
-"completionDate":new Date("Dec 16 02:36:45 EST 2014"),
+"startDate":new Date("Dec 13 2014"),
+"endDate":new Date("Dec 14 2014"),
+"completionDate":new Date("Dec 16 2014"),
 "taskName":"Program 6",
 "status":"Partner Reports",
 "description" : "Description",
@@ -64,9 +64,9 @@ var tasks = [
 ,
 
 {
-"startDate":new Date("Dec 11 03:46:59 EST 2014"),
-"endDate":new Date("Dec 12 04:54:19 EST 2014"),
-"completionDate":new Date("Dec 14 02:36:45 EST 2014"),
+"startDate":new Date("Dec 11 2014"),
+"endDate":new Date("Dec 12 2014"),
+"completionDate":new Date("Dec 14 2014"),
 "taskName":"Program 2",
 "status":"General",
 "description" : "Description",
@@ -95,9 +95,9 @@ var tasks = [
 // },
 
 {
-"startDate":new Date("Dec 08 01:40:11 EST 2014"),
-"endDate":new Date("Dec 09 16:26:35 EST 2014"),
-"completionDate":new Date("Dec 11 02:36:45 EST 2014"),
+"startDate":new Date("Dec 08 2014"),
+"endDate":new Date("Dec 09 2014"),
+"completionDate":new Date("Dec 11 2014"),
 "taskName":"Program 4",
 "status":"Convenings",
 "description" : "Description",
@@ -105,20 +105,20 @@ var tasks = [
 }
 ,
 {
-"startDate":new Date("Dec 07 01:40:11 EST 2014"),
-"endDate":new Date("Dec 8 03:26:35 EST 2014"),
-"completionDate":"",
-"taskName":"Program 2",
+"startDate":new Date("Dec 11 2014"),
+"endDate":new Date("Dec 12 2014"),
+"completionDate":new Date("Dec 12 2014"),
+"taskName":"Program 4",
 "status":"Donor Visit",
 "description" : "Description",
 "notes" : "Notes"
 }
 ,
 {
-"startDate":new Date("Dec 13 03:00:03 EST 2014"),
-"endDate":new Date("Dec 15 03:09:51 EST 2014"),
-"completionDate": "",
-"taskName":"Program 1",
+"startDate":new Date("Dec 07 2014"),
+"endDate":new Date("Dec 08 2014"),
+"completionDate": new Date("Dec 08 2014"),
+"taskName":"Program 2",
 "status":"Market Assessments",
 "description" : "Description",
 "notes" : "Notes"
@@ -126,9 +126,9 @@ var tasks = [
 ,
 
 {
-"startDate":new Date("Dec 15 01:21:00 EST 2014"),
-"endDate":new Date("Dec 15 02:51:42 EST 2014"),
-"completionDate":new Date("Dec 19 02:36:45 EST 2014"),
+"startDate":new Date("Dec 15 2014"),
+"endDate":new Date("Dec 15 2014"),
+"completionDate":new Date("Dec 19 2014"),
 "taskName":"Program 2",
 "status":"Donor Visit",
 "description" : "Description",
@@ -137,9 +137,9 @@ var tasks = [
 ,
 
 {
-"startDate":new Date("Dec 09 01:08:42 EST 2014"),
-"endDate":new Date("Dec 14 01:33:42 EST 2014"),
-"completionDate":new Date("Dec 17 02:36:45 EST 2014"),
+"startDate":new Date("Dec 09 2014"),
+"endDate":new Date("Dec 14 2014"),
+"completionDate":new Date("Dec 17 2014"),
 "taskName":"Program 5",
 "status":"Baseline Survey",
 "description" : "Description",
@@ -148,9 +148,9 @@ var tasks = [
 ,
 
 {
-"startDate":new Date("Dec 11 00:27:15 EST 2014"),
-"endDate":new Date("Dec 14 00:54:56 EST 2014"),
-"completionDate":new Date("Dec 18 02:36:45 EST 2014"),
+"startDate":new Date("Dec 11 2014"),
+"endDate":new Date("Dec 14 2014"),
+"completionDate":new Date("Dec 2014"),
 "taskName":"Program 3",
 "status":"Partner Field Monitoring Visit",
 "description" : "Description",
@@ -159,9 +159,9 @@ var tasks = [
 ,
 
 {
-"startDate":new Date("Dec 13 00:29:48 EST 2014"),
-"endDate":new Date("Dec 16 00:44:50 EST 2014"),
-"completionDate":new Date("Dec 19 02:36:45 EST 2014"),
+"startDate":new Date("Dec 13 2014"),
+"endDate":new Date("Dec 16 2014"),
+"completionDate":new Date("Dec 19 2014"),
 "taskName":"Program 1",
 "status":"Partner Disbursement",
 "description" : "Description",
@@ -170,9 +170,9 @@ var tasks = [
 ,
 
 {
-"startDate":new Date("Dec 09 07:39:21 EST 2014"),
-"endDate":new Date("Dec 16 07:43:22 EST 2014"),
-"completionDate":new Date("Dec 19 02:36:45 EST 2014"),
+"startDate":new Date("Dec 09 2014"),
+"endDate":new Date("Dec 16 2014"),
+"completionDate":new Date("Dec 19 2014"),
 "taskName":"Program 2",
 "status":"End-line Survey",
 "description" : "Description",
@@ -181,9 +181,9 @@ var tasks = [
 ,
 
 {
-"startDate":new Date("Dec 12 07:00:06 EST 2014"),
-"endDate":new Date("Dec 14 07:05:07 EST 2014"),
-//"completionDate":new Date("Dec 16 02:36:45 EST 2014"),
+"startDate":new Date("Dec 12 2014"),
+"endDate":new Date("Dec 14 2014"),
+"completionDate":new Date("Dec 16 02:36:45 EST 2014"),
 "taskName":"Program 1",
 "status":"Donor Report",
 "description" : "Description",
@@ -191,9 +191,9 @@ var tasks = [
 },
 
 {
-"startDate":new Date("Dec 10 08:46:59 EST 2014"),
-"endDate":new Date("Dec 12 09:54:19 EST 2014"),
-"completionDate":new Date("Dec 12 09:54:19 EST 2014"),
+"startDate":new Date("Dec 10 2014"),
+"endDate":new Date("Dec 12 2014"),
+"completionDate":new Date("Dec 12 2014"),
 "taskName":"Program 2",
 "status":"Mitigation Plans",
 "description" : "Description",
@@ -212,9 +212,9 @@ var tasks = [
 // }
 // ,
 {
-"startDate":new Date("Dec 15 08:27:35 EST 2014"),
-"endDate":new Date("Dec 18 08:58:43 EST 2014"),
-"completionDate":new Date("Dec 20 02:36:45 EST 2014"),
+"startDate":new Date("Dec 15 2014"),
+"endDate":new Date("Dec 18 2014"),
+"completionDate":new Date("Dec 20 2014"),
 "taskName":"Program 5",
 "status":"WaterPortal Updates",
 "description" : "Description",
@@ -224,9 +224,9 @@ var tasks = [
 ,
 
 {
-"startDate":new Date("Dec 14 08:40:11 EST 2014"),
-"endDate":new Date("Dec 18 08:46:35 EST 2014"),
-"completionDate":new Date("Dec 19 02:36:45 EST 2014"),
+"startDate":new Date("Dec 14 2014"),
+"endDate":new Date("Dec 18 2014"),
+"completionDate":new Date("Dec 19 2014"),
 "taskName":"Program 4",
 "status":"Post-line Survey",
 "description" : "Description",
@@ -234,9 +234,9 @@ var tasks = [
 }
 ,
 {
-"startDate":new Date("Dec 07 08:00:03 EST 2014"),
-"endDate":new Date("Dec 11 08:09:51 EST 2014"),
-"completionDate":new Date("Dec 11 08:09:51 EST 2014"),
+"startDate":new Date("Dec 07 2014"),
+"endDate":new Date("Dec 11 2014"),
+"completionDate":new Date("Dec 11 2014"),
 "taskName":"Program 6",
 "status":"End-line Survey",
 "description" : "Description",
