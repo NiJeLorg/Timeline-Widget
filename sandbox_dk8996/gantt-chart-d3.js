@@ -20,8 +20,8 @@ d3.gantt = function() {
     var taskStatus = [];
     var timeDependentCategory = [];
     var height2 = 100;
-    var height = document.body.clientHeight - height2 - margin.top - margin.bottom - 50;
-    var width = document.body.clientWidth - margin.right - margin.left-5;
+    var height = (document.body.clientHeight / 2) - height2 - margin.top - margin.bottom - 50;
+    var width = (document.body.clientWidth / 2) - margin.right - margin.left-5;
     
     var margin2 = {
         top : 20,

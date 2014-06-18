@@ -335,36 +335,56 @@ var minDate = tasks[0].startDate;
 
 var format = "%m/%d";
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 160 - margin.left - margin.right,
-    height = 160 - margin.top - margin.bottom;
-//for legend:
-// var svg = d3.select("body").append("svg")
-//     .attr("width", width + margin.left + margin.right)
-//     .attr("height", height + margin.top + margin.bottom)
-//   .append("g")
-//     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-// 
-// var color = d3.scale.ordinal()
-//     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-// 
-//   var legend = svg.selectAll(".legend")
-//       .data(color)
-//     .enter().append("g")
-//       .attr("class", "legend")
-//       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-// 
-//   legend.append("rect")
-//       .attr("x", width - 18)
-//       .attr("width", 18)
-//       .attr("height", 18)
-//       .style("fill", color);
-// 
-//   legend.append("taskNames", [])
-//       .attr("x", width - 24)
-//       .attr("y", 9)
-//       .attr("dy", ".35em")
-//       .style("text-anchor", "end")
-//       .text(function(d) { return d; });
+    width = 300 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var color = d3.scale.ordinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+// Get Unique tasks for   
+var uniTasks = new Array();
+for (var i = 0; i < tasks.length; i++){
+    uniTasks.push(tasks[i].status);
+}
+uniTasks = checkUnique(uniTasks);  
+    
+  var legend = svg.selectAll(".legend")
+      .data(uniTasks)
+    .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend.append("rect")
+      .attr("x", 18)
+      .attr("width", 18)
+      .attr("height", 18)
+      .attr("class",function(d){return taskStatus[d];});
+
+  legend.append("text")
+      .data(uniTasks)
+      .attr("x", 40)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "begin")
+      .text(function(d) { return d; });
+
+
+function checkUnique(arr) {
+    var hash = {}, result = [];
+    for ( var i = 0, l = arr.length; i < l; ++i ) {
+        if ( !hash.hasOwnProperty(arr[i]) ) { //it works with objects! in FF, at least
+            hash[ arr[i] ] = true;
+            result.push(arr[i]);
+        }
+    }
+    return result;
+}
 
 var gantt = d3.gantt().taskTypes(taskNames).taskStatus(taskStatus).tickFormat(format);
 gantt(tasks);
