@@ -8,10 +8,10 @@ d3.gantt = function() {
     var FIXED_TIME_DOMAIN_MODE = "fixed";
     
     var margin = {
-	    top : 20,
-	    right : 40,
-	    bottom : 20,
-	    left : 150
+	    top : 10,
+	    right : 10,
+	    bottom : 10,
+	    left : 10
     };
     var timeDomainStart = d3.time.day.offset(new Date(),-365);
     var timeDomainEnd = d3.time.hour.offset(new Date(),+365);
@@ -20,14 +20,14 @@ d3.gantt = function() {
     var taskStatus = [];
     var timeDependentCategory = [];
     var height2 = 100;
-    var height = (document.body.clientHeight / 2) - height2 - margin.top - margin.bottom - 50;
-    var width = (document.body.clientWidth / 2) - margin.right - margin.left-5;
+    var height = document.body.clientHeight - height2 - margin.top - margin.bottom - 150;
+    var width = document.body.clientWidth - margin.right - margin.left - 40;
     
     var margin2 = {
-        top : 20,
-        right : 40,
-        bottom : 20,
-        left : 150
+        top : 10,
+        right : 10,
+        bottom : 10,
+        left : 10
     };    
 
     var _tickFormat = "%b %d";
@@ -82,9 +82,22 @@ d3.gantt = function() {
     
     var dateFormat = d3.time.format("%b %d, %Y");
     
+    var uniTasks = new Array();
+    
     function drawGanttChart(tasks) {
+        focus.selectAll("rect").remove(); 
+        
         focus.selectAll("rect")
-            .data(tasks).enter()
+            .data(tasks.filter(function(d){ 
+                var filter_status = d.status;
+                var task_type = uniTasks.filter(function(t) { return t.status == filter_status; });
+                if(task_type.length == 1) {
+                    if(task_type[0].active)
+                        return true;
+                }
+                return false; 
+            }))
+            .enter()
             .append("rect")
             .attr("rx", 1)
             .attr("ry", 1)
@@ -126,15 +139,90 @@ d3.gantt = function() {
             });
     }
     
+        
+    function drawViewTabs(tasks) {
+        // Timeline view ---
+        var tv_height = uniTasks.length * 20;
+        var svg = d3.select("body").select("#task_status")
+            .append("svg")
+            .attr("height", tv_height);
+            
+        var legend = svg.selectAll(".legend")
+          .data(uniTasks)
+          .enter().append("g")
+          .attr("class", "legend")
+          .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+        legend.append("rect")
+          .attr("x", 18)
+          .attr("width", 18)
+          .attr("height", 18)
+          .attr("class",function(d){return taskStatus[d.status];});
+
+        legend.append("text")
+          .data(uniTasks)
+          .attr("class", "active")
+          .attr("x", 40)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .style("text-anchor", "begin")
+          .text(function(d) { return d.status; })
+          .on("click", function(d, i){
+              var curClass = d3.select(this).attr("class");
+              if(curClass == "active") {
+                  d3.select(this).attr("class", "inactive");
+                  uniTasks[i].active = false;                  
+              } else {
+                  d3.select(this).attr("class", "active");
+                  uniTasks[i].active = true;
+              }
+              drawGanttChart(tasks);
+          });
+        
+        // ---- Action Item View
+        d3.select("body").select("#action_view")
+            .append('label')
+                .attr('for',"chk1")
+                .text("Test Checkbox")
+            .append("input")
+                .attr("checked", false)
+                .attr("type", "checkbox")
+                .attr("id", "chk1");
+        var svg_act = d3.select("body").select("#action_view").append("svg");
+        svg_act.append("path")
+            .attr("d", d3.svg.symbol().type("triangle-up").size(170))
+                .attr("transform", "translate(20,20)")
+                .style("fill", "black");
+            
+            /*
+        d3.select("body").selectAll("input")
+        .data([11, 22, 33, 44])
+        .enter()
+        .append('label')
+            .attr('for',function(d,i){ return 'a'+i; })
+            .text(function(d) { return d; })
+        .append("input")
+            .attr("checked", true)
+            .attr("type", "checkbox")
+            .attr("id", function(d,i) { return 'a'+i; })
+            .attr("onClick", "change(this)");
+            */
+    }
+    
     function gantt(tasks) {
 	
 	    initTimeDomain(tasks);
 	    initAxis();
         
-	    var svg = d3.select("body")
+        // Get Unique tasks for   
+        for (var i = 0; i < tasks.length; i++){
+            uniTasks.push({"status": tasks[i].status, "active": true});
+        }
+        uniTasks = checkUnique(uniTasks);  
+        
+	    var svg = d3.select("body").select("#chart")
 	        .append("svg")
-	        .attr("class", "chart")
-	        .attr("width", width + margin.left + margin.right)
+	        .attr("width", width)
 	        .attr("height", height + margin.top + margin.bottom + height2 + margin2.top + margin2.bottom);
             
         svg.append("defs").append("clipPath")
@@ -155,8 +243,6 @@ d3.gantt = function() {
             .x(x2)
             .on("brush", function() {
                 x.domain(brush.empty() ? x2.domain() : brush.extent());
-                      
-                focus.selectAll("rect").remove();   
                 
                 drawGanttChart(tasks);
  
@@ -202,52 +288,23 @@ d3.gantt = function() {
             .attr("y", -6)
             .attr("height", height2 - margin2.top - margin2.bottom + 7);
 
+        // Draw view tabs for timeline and action
+        drawViewTabs(tasks);
+            
         return gantt;
 
     };
     
-    /*
-    gantt.redraw = function(tasks) {
-
-	    initTimeDomain(tasks);
-	    initAxis();
-	
-        var svg = d3.select("svg");
-
-        var ganttChartGroup = svg.select(".gantt-chart");
-        var rect = ganttChartGroup.selectAll("rect").data(tasks, keyFunction);
-        console.log("enter");
-        rect.enter()
-         .insert("rect",":first-child")
-         .attr("rx", 1)
-         .attr("ry", 1)
-	     .attr("class", function(d){ 
-	         if(taskStatus[d.status] == null){ return "bar";}
-	         return taskStatus[d.status];
-	     }) 
-	     .transition()
-	     .attr("y", 0)
-	     .attr("transform", rectTransform)
-	     .attr("height", function(d) { return y.rangeBand(); })
-	     .attr("width", function(d) { 
-	        return (x(d.endDate) - x(d.startDate)); 
-	     });
-
-        rect.transition()
-          .attr("transform", rectTransform)
-	      .attr("height", function(d) { return y.rangeBand() / 2; })
-	      .attr("width", function(d) { 
-	            return (x(d.endDate) - x(d.startDate)); 
-	     });
-        
-	    rect.exit().remove();
-
-	    svg.select(".x").transition().call(xAxis);
-	    svg.select(".y").transition().call(yAxis);
-	    
-	    return gantt;
-    };
-    */
+    function checkUnique(arr) {
+        var hash = {}, result = [];
+        for ( var i = 0, l = arr.length; i < l; ++i ) {
+            if ( !hash.hasOwnProperty(arr[i].status) ) { //it works with objects! in FF, at least
+                hash[ arr[i].status ] = true;
+                result.push(arr[i]);
+            }
+        }
+        return result;
+    }
 
     gantt.margin = function(value) {
 	    if (!arguments.length)

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gantt Chart Example 1</title>
+    <link type="text/css" href="http://mbostock.github.io/d3/style.css" rel="stylesheet" />
+    <link type="text/css" href="../example.css" rel="stylesheet" />
+    <style type="text/css">
+
+    .axis text {
+      font: 11px sans-serif;
+    }
+
+    .axis path {
+      display: #000;
+    }
+
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .grid-background {
+      fill: #ddd;
+    }
+
+    .grid line,
+    .grid path {
+      fill: none;
+      stroke: #fff;
+      shape-rendering: crispEdges;
+    }
+
+    .grid .minor.tick line {
+      stroke-opacity: .5;
+    }
+    
+    .title {
+        font-size: 18px;
+        font-weight: bold;
+        display: block;
+        margin: 10px 20px;
+    }
+    
+    .container {
+        width: 99%;
+        margin: 0 auto;
+    }
+
+    .active {
+        cursor: pointer;
+        color: black;
+        fill: black;
+    }
+    .inactive {
+        cursor: pointer;
+        color: grey;
+        fill: grey;
+    }
+    
+    #task_status {
+        width: 80%;
+        padding: 20px;
+        margin: 20px auto;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px; /* future proofing */
+        -khtml-border-radius: 10px; /* for old Konqueror browsers */
+        border: 1px solid black;
+        background-color: #fff;
+    }
+
+    </style>
+
+    <link rel="stylesheet" href="jquery/jquery-ui.css">
+    <script type="text/javascript" src="jquery/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="jquery/jquery-ui.js"></script>
+
+</head>
+<body>    
+    <label class="title">Timeline</label>
+    <div class="container">
+        <div id="tabs">
+            <ul>
+                <li><a href="#timeline_view">Timeline View</a></li>
+                <li><a href="#action_view">Action Item View</a></li>
+            </ul>
+            <div id="timeline_view">
+                <div id="chart"></div>
+                <div id="task_status"></div>
+            </div>
+            <div id="action_view">
+            </div>
+        </div>
+    </div>
+    
+	<script type="text/javascript" src="../../themes/WaterPortal/js/d3/d3.v3.min.js"></script>
+	<script type="text/javascript" src="../gantt-chart-d3.js"></script>
+	<script type="text/javascript" src="example_062014.js"></script>
+
+    <script type="text/javascript">
+        // jQuery Render Tabs
+        $(function() {
+            $( "#tabs" ).tabs();
+        });
+    </script>
+</body>
+</html>
