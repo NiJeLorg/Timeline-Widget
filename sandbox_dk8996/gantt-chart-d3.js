@@ -139,9 +139,44 @@ d3.gantt = function() {
             });
     }
     
+    function drawGanttBrushChart(tasks) {
+        context.selectAll("rect").remove(); 
         
+        context.selectAll("rect")
+            .data(tasks).enter()
+            .append("rect")
+            .attr("rx", 1)
+            .attr("ry", 1)
+            .attr("class", function(d){ 
+                 if(taskStatus[d.status] == null){ return "bar";}
+                 return taskStatus[d.status];
+             }) 
+            .attr("y", 0)
+            .attr("transform", rectTransform2)
+            .attr("height", function(d) { return y2.rangeBand(); })
+            .attr("width", function(d) { 
+                return (x(d.endDate) - x(d.startDate)); 
+            });
+    }
+    
     function drawViewTabs(tasks) {
         // Timeline view ---
+        d3.select("body").select("#chkAll")
+            .on("click", function(){
+                if(this.checked) {
+                  d3.select("#task_status").selectAll("text").attr("class", "active");
+                  for(var i = 0; i < uniTasks.length; i++) {
+                      uniTasks[i].active = true;
+                  }
+                } else {
+                  d3.select("#task_status").selectAll("text").attr("class", "inactive");  
+                  for(var i = 0; i < uniTasks.length; i++) {
+                      uniTasks[i].active = false;
+                  }
+                }
+                drawGanttChart(tasks);
+            });
+        
         var tv_height = uniTasks.length * 20;
         var svg = d3.select("body").select("#task_status")
             .append("svg")
@@ -178,35 +213,7 @@ d3.gantt = function() {
               }
               drawGanttChart(tasks);
           });
-        
-        // ---- Action Item View
-        d3.select("body").select("#action_view")
-            .append('label')
-                .attr('for',"chk1")
-                .text("Test Checkbox")
-            .append("input")
-                .attr("checked", false)
-                .attr("type", "checkbox")
-                .attr("id", "chk1");
-        var svg_act = d3.select("body").select("#action_view").append("svg");
-        svg_act.append("path")
-            .attr("d", d3.svg.symbol().type("triangle-up").size(170))
-                .attr("transform", "translate(20,20)")
-                .style("fill", "black");
-            
-            /*
-        d3.select("body").selectAll("input")
-        .data([11, 22, 33, 44])
-        .enter()
-        .append('label')
-            .attr('for',function(d,i){ return 'a'+i; })
-            .text(function(d) { return d; })
-        .append("input")
-            .attr("checked", true)
-            .attr("type", "checkbox")
-            .attr("id", function(d,i) { return 'a'+i; })
-            .attr("onClick", "change(this)");
-            */
+
     }
     
     function gantt(tasks) {
@@ -259,21 +266,7 @@ d3.gantt = function() {
 
         focus.append("g").attr("class", "y axis").transition().call(yAxis);
 	     
-        context.selectAll("rect")
-            .data(tasks).enter()
-            .append("rect")
-            .attr("rx", 1)
-            .attr("ry", 1)
-            .attr("class", function(d){ 
-                 if(taskStatus[d.status] == null){ return "bar";}
-                 return taskStatus[d.status];
-             }) 
-            .attr("y", 0)
-            .attr("transform", rectTransform2)
-            .attr("height", function(d) { return y2.rangeBand(); })
-            .attr("width", function(d) { 
-                return (x(d.endDate) - x(d.startDate)); 
-            });
+        drawGanttBrushChart(tasks);
 
         context.append("g")
             .attr("class", "x axis")

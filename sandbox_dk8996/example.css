@@ -17,75 +17,92 @@ html,body,#wrapper {
 
 .bar {
 	fill: #33b5e5;
+    border-bottom-color: #33b5e5 !important;
 }
 
 .bar-partnerReports {
 	fill: #00873a;
+    border-bottom-color: #00873a !important;
 }
 
 
 .bar-donorReport {
 	fill: #e23139;
+    border-bottom-color: #e23139 !important;
 }
 
 .bar-donorVisit {
 	fill: #33b5e5;
+    border-bottom-color: #33b5e5 !important;
 }
 
 .bar-donorInitiative {
 	fill: #ccae27;
+    border-bottom-color: #ccae27 !important;
 }
 
 .bar-partnerFieldVisit {
 	fill: #9b37a4;
+    border-bottom-color: #9b37a4 !important;
 }
 
 .bar-partnerAudit {
 	fill: #79c9b9;
+    border-bottom-color: #79c9b9 !important;
 }
 
 .bar-baselineSurvey {
 	fill: #981481;
+    border-bottom-color: #981481 !important;
 }
 
 .bar-endlineSurvey {
 	fill: #ef25a0;
+    border-bottom-color: #ef25a0 !important;
 }
 
 .bar-postlineSurvey {
 	fill: #b38c39;
+    border-bottom-color: #b38c39 !important;
 }
 
 .bar-partnerDisbursement {
 	fill: #be441e;
+    border-bottom-color: #be441e !important;
 }
 
 
 .bar-marketAssessments {
 	fill: #0076c1;
+    border-bottom-color: #0076c1 !important;
 }
 
 
 
 .bar-convenings {
 	fill: #3ce5f0;
+    border-bottom-color: #3ce5f0 !important;
 }
 
 
 .bar-event {
 	fill: #206498;
+    border-bottom-color: #206498 !important;
 }
 
 .bar-waterPortalUpdates {
 	fill: #e82a69;
+    border-bottom-color: #e82a69 !important;
 }
 
 .bar-mitigationPlans {
 	fill: #9c39f8;
+    border-bottom-color: #9c39f8 !important;
 }
 
 .bar-general {
 	fill: #6e27cc;
+    border-bottom-color: #6e27cc !important;
 }
 
 
@@ -136,17 +153,6 @@ div.tooltip {
   pointer-events: none;         
 }
 
-
-    * {
-      margin: 0;
-      padding: 0;
-  }
-  body {
-      background: #fff;
-      font-family: 'Open-Sans',sans-serif;
-
-  }
-
 #container{
   margin: 0 auto;
   position: relative;
@@ -156,6 +162,9 @@ div.tooltip {
   overflow: visible;
 }
 
+body {
+    font-size: 12px;
+}
 
   .svg {
       /*

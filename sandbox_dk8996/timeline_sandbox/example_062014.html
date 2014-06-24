@@ -2,7 +2,9 @@
 <html>
 <head>
     <title>Gantt Chart Example 1</title>
-    <link type="text/css" href="http://mbostock.github.io/d3/style.css" rel="stylesheet" />
+    <!-- 
+<link type="text/css" href="http://mbostock.github.io/d3/style.css" rel="stylesheet" />
+ -->
     <link type="text/css" href="../example.css" rel="stylesheet" />
     <style type="text/css">
 
@@ -58,7 +60,8 @@
         fill: grey;
     }
     
-    #task_status {
+/*    #task_status */
+	#toggle_tasks {
         width: 80%;
         padding: 20px;
         margin: 20px auto;
@@ -68,6 +71,46 @@
         -khtml-border-radius: 10px; /* for old Konqueror browsers */
         border: 1px solid black;
         background-color: #fff;
+    }
+    #toggle_all {
+        margin: 10px 21px;
+    }
+    
+    #toggle_all label {
+        cursor: pointer;
+    }
+    
+        .triangle {
+        width: 0px;
+        height: 0px;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 15px solid #000;
+        display: inline-block;
+    }    
+    
+    .task_row {
+        margin: 2px 0;
+    }
+    .task_row label{
+        font: 10px sans-serif;
+        line-height: 15px;
+        vertical-align: top;
+        margin-top: 2px;
+        display: inline-block;
+    }
+    
+    #btnAddItem {
+        float: right;
+        margin-right: 30px;
+    }
+    
+    #sltStatus, #sltTaskName {
+        width: 200px;
+    }
+    
+    .datepicker {
+        width: 100px;
     }
 
     </style>
@@ -87,11 +130,51 @@
             </ul>
             <div id="timeline_view">
                 <div id="chart"></div>
-                <div id="task_status"></div>
+                <div id="toggle_tasks">
+                    <div id="toggle_all">
+                        <input type="checkbox" id="chkAll" checked="checked" /><label for="chkAll">Toggle all events</label>
+                    </div>
+                    <div id="task_status"></div>
+                </div>
             </div>
             <div id="action_view">
+                <div id="tasks"></div>
+                <div>
+                    <input type="button" id="btnAddItem" value="Add an Item" />
+                    <br/><br/>
+                </div>
             </div>
         </div>
+    </div>
+    
+    <div id="AddDialog" style="display: none;">
+        <input type="hidden" autofocus="autofocus" />
+        <table border="0" cellpadding="5" cellspacing="5">
+            <tr>
+                <td>Start Date</td>
+                <td><input type="text" id="txtStartDate" class="datepicker" /></td>
+            </tr>
+            <tr>
+                <td>End Date</td>
+                <td><input type="text" id="txtEndDate" class="datepicker" /></td>
+            </tr>
+            <tr>
+                <td>Task Name</td>
+                <td><select id="sltTaskName"></select></td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td><select id="sltStatus"></select></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><textarea id="txtDescription" rows="2" cols="25"></textarea></td>
+            </tr>
+            <tr>
+                <td>Notes</td>
+                <td><textarea id="txtNotes" rows="3" cols="25"></textarea></td>
+            </tr>
+        </table>
     </div>
     
 	<script type="text/javascript" src="../../themes/WaterPortal/js/d3/d3.v3.min.js"></script>

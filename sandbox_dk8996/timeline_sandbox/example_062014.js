@@ -1,7 +1,3 @@
-example();
-
-function example() {
-
 
 //JSON
 var tasks = [
@@ -347,5 +343,96 @@ var color = d3.scale.ordinal()
 var gantt = d3.gantt().taskTypes(taskNames).taskStatus(taskStatus).tickFormat(format);
 gantt(tasks);
 
-};
+function drawActionView() {
+    // ---- Action Item View
+    var dateFormat = d3.time.format("%b %d, %Y");
+    var _html = "";
+    for(i = 0; i < tasks.length; i++) {
+        var endDate_color = "";
+        var today = new Date();
+        if(tasks[i].endDate < today) {
+            endDate_color = "color: red";
+        }
+        _html += "<div class='task_row'>" + 
+                "   <span class='" + taskStatus[tasks[i].status] + " triangle'></span>" +
+                "   <input type='checkbox' />" +
+                "   <label>" + tasks[i].status + " for " + tasks[i].taskName + "</label>" +
+                "   <label style='" + endDate_color + "'>due on " + dateFormat(tasks[i].endDate) + "</label>" +
+                "</div>"; 
+    }
+    $("#tasks").html(_html);
+}
 
+$(document).ready(function() {
+    $( "#tabs" ).tabs();
+    $( "#txtStartDate" ).datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1,
+      dateFormat: "M dd yy",
+      onClose: function( selectedDate ) {
+        $( "#txtEndDate" ).datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $( "#txtEndDate" ).datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1,
+      dateFormat: "M dd yy",
+      onClose: function( selectedDate ) {
+        $( "#txtStartDate" ).datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+    
+    for(var i=0;i<taskNames.length;i++) {
+        $("#sltTaskName").append($("<option></option>").attr("value",taskNames[i]).text(taskNames[i])); 
+    }
+    $.each(taskStatus, function(key, value) {   
+         $('#sltStatus')
+             .append($("<option></option>")
+             .attr("value",key)
+             .text(key)); 
+    });
+    
+    drawActionView();    
+    
+    $("#btnAddItem").click(function() {
+        $( "#txtStartDate" ).datepicker( "setDate", new Date());
+        $( "#txtEndDate" ).val("");
+        $("#sltTaskName option:first").attr('selected','selected');
+        $("#sltStatus option:first").attr('selected','selected');
+        $( "#AddDialog" ).dialog({
+            title: "Add an Item",
+            height: "auto",
+            width: 350,
+            modal: true,
+            buttons: {
+              "Save":function() {
+                  // Add to Item
+                  tasks.push({
+                                "startDate":new Date($("#txtStartDate").val()),
+                                "endDate":new Date($("#txtEndDate").val()),
+                                //"completionDate":new Date("Dec 14 2014"),
+                                "taskName":$("#sltTaskName").val(),
+                                "status":$("#sltStatus").val(),
+                                "description" : $("#txtDescription").val(),
+                                "notes" : $("#txtNotes").val()
+                            });
+                  drawActionView();
+                  
+                  // redarw chart
+                  $("#chart").html("");
+                  $("#task_status").html("");
+                  gantt(tasks);
+                  
+                  $( this ).dialog( "close" );
+              }, 
+              "Cancel": function() {
+                  $( this ).dialog( "close" );
+              }
+            }
+        });
+    });
+    $("#txtStartDate").focusout();
+
+});
