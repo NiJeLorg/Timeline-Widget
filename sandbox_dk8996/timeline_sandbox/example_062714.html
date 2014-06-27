@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gantt Chart Example 1</title>
+    <link type="text/css" href="../example.css" rel="stylesheet" />
+    <style type="text/css">
+
+    .axis text {
+      font: 11px sans-serif;
+    }
+
+    .axis path {
+      display: #000;
+    }
+
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .grid-background {
+      fill: #ddd;
+    }
+
+    .grid line,
+    .grid path {
+      fill: none;
+      stroke: #fff;
+      shape-rendering: crispEdges;
+    }
+
+    .grid .minor.tick line {
+      stroke-opacity: .5;
+    }
+    
+    .title {
+        font-size: 18px;
+        font-weight: bold;
+        display: block;
+        margin: 10px 20px;
+    }
+    
+    .container {
+        width: 99%;
+        margin: 0 auto;
+    }
+
+    .active {
+        cursor: pointer;
+        color: black;
+        fill: black;
+    }
+    .inactive {
+        cursor: pointer;
+        color: grey;
+        fill: grey;
+    }
+    
+    #toggle_tasks {
+        width: 80%;
+        padding: 20px;
+        margin: 20px auto;
+        display: none;
+    }
+    
+    #toggle_all {
+        margin: 10px 21px;
+    }
+    
+    #toggle_all label {
+        cursor: pointer;
+    }
+
+    .triangle {
+        width: 0px;
+        height: 0px;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 15px solid #000;
+        display: inline-block;
+    }    
+    
+    .task_row {
+        margin: 2px 0;
+    }
+    .task_row label{
+        font: 10px sans-serif;
+        line-height: 15px;
+        vertical-align: top;
+        margin-top: 2px;
+        display: inline-block;
+    }
+    
+    #btnAddItem {
+        float: right;
+        margin-right: 30px;
+    }
+    
+    #sltStatus, #sltTaskName {
+        width: 200px;
+    }
+    
+    .datepicker {
+        width: 100px;
+    }
+    </style>
+
+    <link rel="stylesheet" href="jquery/jquery-ui.css">
+    <script type="text/javascript" src="jquery/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="jquery/jquery-ui.js"></script>
+
+</head>
+<body>  
+    <div id="chart_container" style="width:800px;">
+        <label class="title">Timeline</label>
+        <div class="container">
+            <div id="tabs">
+                <ul>
+                    <li><a href="#timeline_view">Timeline View</a></li>
+                    <li><a href="#action_view">Manage Activities</a></li>
+                </ul>
+                <div id="timeline_view">
+                    <div id="chart"></div>
+                    <a href="javascript:seemore()" id="seemore" style="float:right;">See more</a>
+                    <a href="javascript:seemore()" id="hidedetails" style="float:right;display:none;">Hide details</a>
+                    <div id="toggle_tasks">
+                        <div id="toggle_all">
+                            <input type="checkbox" id="chkAll" checked="checked" /><label for="chkAll">Toggle all events</label>
+                        </div>
+                        <div id="task_status"></div>
+                    </div>
+                    <br/>
+                </div>
+                <div id="action_view">
+                    <div id="tasks"></div>
+                    <div>
+                        <input type="button" id="btnAddItem" value="Manage Item" />
+                        <br/><br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+    
+    <div id="completeDialog" style="display: none;">
+        <input type="hidden" autofocus="autofocus" />
+        <div id="lblActionItem"></div>
+        <table border="0" cellpadding="5" cellspacing="5">
+            <tr>
+                <td>Completed on:</td>
+                <td><input type="text" id="txtCompletedOn" class="datepicker" /></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div id="AddDialog" style="display: none;">
+        <input type="hidden" autofocus="autofocus" />
+        <table border="0" cellpadding="5" cellspacing="5">
+            <tr>
+                <td>Repeats</td>
+                <td>
+                    <select id="sltRepeatType">
+                        <option value="">None</option>
+                        <option value="Weekly">Weekly</option>
+                        <option value="Monthly">Monthly</option>
+                    </select>
+                </td>
+            </tr>
+            <tr id="trRepeatDetails">
+                <td>Repeat on:</td>
+                <td>
+                    <div id="rptWeekly">
+                        <select id="sltStartDay">
+                            <option value="0">Sun</option>
+                            <option value="1">Mon</option>
+                            <option value="2">Tue</option>
+                            <option value="3">Wed</option>
+                            <option value="4">Thu</option>
+                            <option value="5">Fri</option>
+                            <option value="6">Sat</option>
+                        </select>
+                        &nbsp;~
+                        <select id="sltEndDay">
+                            <option value="0">Sun</option>
+                            <option value="1">Mon</option>
+                            <option value="2">Tue</option>
+                            <option value="3">Wed</option>
+                            <option value="4">Thu</option>
+                            <option value="5">Fri</option>
+                            <option value="6">Sat</option>
+                        </select>
+                    </div>
+                    <div id="rptMonthly">
+                        <input type="text" id="txtStartDay" style="width:20px;" />&nbsp;~
+                        <input type="text" id="txtEndDay" style="width:20px;" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Start Date</td>
+                <td><input type="text" id="txtStartDate" class="datepicker" /></td>
+            </tr>
+            <tr>
+                <td>Ends</td>
+                <td>
+                    <div id="optEnds">
+                        <input type="radio" name="rdiEnds" value="never" />Never<br/>
+                        <input type="radio" name="rdiEnds" value="after" />After<input type="text" id="txtOccur" style="width:20px" />occurrences
+                    </div>
+                    <input type="radio" name="rdiEnds" value="on" />On<input type="text" id="txtEndDate" class="datepicker" />
+                </td>
+            </tr>
+            <tr>
+                <td>Program ID</td>
+                <td><select id="sltTaskName"></select></td>
+            </tr>
+            <tr>
+                <td>Task</td>
+                <td><select id="sltStatus"></select></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><textarea id="txtDescription" rows="2" cols="30"></textarea></td>
+            </tr>
+            <tr>
+                <td>Notes</td>
+                <td><textarea id="txtNotes" rows="3" cols="30"></textarea></td>
+            </tr>
+        </table>
+    </div>
+    
+	<script type="text/javascript" src="../../themes/WaterPortal/js/d3/d3.v3.min.js"></script>
+	<script type="text/javascript" src="../gantt-chart-d3.js"></script>
+	<script type="text/javascript" src="example_062714.js"></script>
+
+</body>
+</html>

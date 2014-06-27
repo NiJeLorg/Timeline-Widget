@@ -11,34 +11,37 @@ d3.gantt = function() {
 	    top : 10,
 	    right : 10,
 	    bottom : 10,
-	    left : 10
+	    left : 0
     };
     var timeDomainStart = d3.time.day.offset(new Date(),-365);
     var timeDomainEnd = d3.time.hour.offset(new Date(),+365);
+    var extentStart, extentEnd;
     var timeDomainMode = FIT_TIME_DOMAIN_MODE;// fixed or fit
     var taskTypes = [];
     var taskStatus = [];
     var timeDependentCategory = [];
     var height2 = 100;
     var height = document.body.clientHeight - height2 - margin.top - margin.bottom - 150;
-    var width = document.body.clientWidth - margin.right - margin.left - 40;
+    //var width = document.body.clientWidth - margin.right - margin.left - 40;
+    var width = parseInt(d3.select("#chart_container").style("width")) - margin.right - margin.left - 40;
     
     var margin2 = {
         top : 10,
         right : 10,
         bottom : 10,
-        left : 10
+        left : 0
     };    
 
     var _tickFormat = "%b %d";
+    
+    var program_width = 60;
 
     var rectTransform = function(d) {
-	    return "translate(" + x(d.startDate) + "," + y(d.taskName) + ")";
-        console.log("right here");
+	    return "translate(" + x(d.startDate) + "," + (y(d.taskName) + (y.rangeBand() / d.stack_length) * (d.stack_index - 1) ) + ")";
     };
 
     var rectTransform2 = function(d) {
-        return "translate(" + x(d.startDate) + "," + y2(d.taskName) + ")";
+        return "translate(" + x(d.startDate) + "," + (y2(d.taskName) + (y2.rangeBand() / d.stack_length) * (d.stack_index - 1) ) + ")";
     };
 
     var x, y, xAxis, yAxis, x2, y2, xAxis2;
@@ -46,43 +49,57 @@ d3.gantt = function() {
     var initTimeDomain = function(tasks) {
 	    if (timeDomainMode === FIT_TIME_DOMAIN_MODE) {
 	        if (tasks === undefined || tasks.length < 1) {
-		    timeDomainStart = d3.time.day.offset(new Date(), -365);
-		    timeDomainEnd = d3.time.hour.offset(new Date(), +365);
-		    return;
+		        timeDomainStart = d3.time.day.offset(new Date(), -365);
+		        timeDomainEnd = d3.time.hour.offset(new Date(), +365);
+		        return;
 	        }
 	        tasks.sort(function(a, b) {
-		    return a.endDate - b.endDate;
+		        return a.endDate - b.endDate;
 	        });
 	        timeDomainEnd = tasks[tasks.length - 1].endDate;
 	        tasks.sort(function(a, b) {
-		    return a.startDate - b.startDate;
+		        return a.startDate - b.startDate;
 	        });
 	        timeDomainStart = tasks[0].startDate;
+            
+            // Redefine Time line for only current year
+            timeDomainStart = ganttTimelineStart;
+            timeDomainEnd = ganttTimelineEnd;
+            
 	    }
     };
 
     var initAxis = function() {
-	    x = d3.time.scale().domain([ timeDomainStart, timeDomainEnd ]).range([ 0, width ]).clamp(true);        
+	    x = d3.time.scale().domain([ timeDomainStart, timeDomainEnd ]).range([ 0, width - program_width ]).clamp(true);        
 	    y = d3.scale.ordinal().domain(taskTypes).rangeRoundBands([ 0, height - margin.top - margin.bottom ], .1);
         
 	    xAxis = d3.svg.axis().scale(x).orient("bottom").tickFormat(d3.time.format(_tickFormat)).tickSubdivide(true).tickSize(8).tickPadding(8);
 	    yAxis = d3.svg.axis().scale(y).orient("left").tickSize(0);
         
-        x2 = d3.time.scale().domain([ timeDomainStart, timeDomainEnd ]).range([ 0, width ]).clamp(true);
+        x2 = d3.time.scale().domain([ timeDomainStart, timeDomainEnd ]).range([ 0, width - program_width ]).clamp(true);
         y2 = d3.scale.ordinal().domain(taskTypes).rangeRoundBands([ 0, height2 - margin2.top - margin2.bottom ], .1);
         
         xAxis2 = d3.svg.axis().scale(x).orient("bottom").tickFormat(d3.time.format(_tickFormat)).tickSubdivide(true).tickSize(8).tickPadding(8);
+        
+        // Initialize extent Start and End for current quarter
+        var d = new Date();
+        var quarter = Math.floor((d.getMonth() / 3));
+        var firstDate = new Date(d.getFullYear(), quarter * 3, 1);
+        var endDate = new Date(firstDate.getFullYear(), firstDate.getMonth() + 3, 0);
+        
+        extentStart = firstDate;
+        extentEnd = endDate;
     };
     
     var focus, context, brush;
     
     var tooltip = d3.select("body").append("div")   
         .attr("class", "tooltip")               
-        .style("opacity", 0);
+        .style("opacity", 0);    
     
     var dateFormat = d3.time.format("%b %d, %Y");
     
-    var uniTasks = new Array();
+    var uniTasks = new Array(), tempTasks = new Array();
     
     function drawGanttChart(tasks) {
         focus.selectAll("rect").remove(); 
@@ -108,7 +125,7 @@ d3.gantt = function() {
             .attr("y", 0)
             .attr("transform", rectTransform)
             .attr("height", function(d) { 
-                        return y.rangeBand(); 
+                        return y.rangeBand() / d.stack_length; 
                     })
             .attr("width", function(d) { 
                 return (x(d.endDate) - x(d.startDate)); 
@@ -153,7 +170,9 @@ d3.gantt = function() {
              }) 
             .attr("y", 0)
             .attr("transform", rectTransform2)
-            .attr("height", function(d) { return y2.rangeBand(); })
+            .attr("height", function(d) { 
+                return y2.rangeBand() / d.stack_length; 
+            })
             .attr("width", function(d) { 
                 return (x(d.endDate) - x(d.startDate)); 
             });
@@ -177,7 +196,7 @@ d3.gantt = function() {
                 drawGanttChart(tasks);
             });
         
-        var tv_height = uniTasks.length * 20;
+        var tv_height = uniTasks.length / 2 * 21;
         var svg = d3.select("body").select("#task_status")
             .append("svg")
             .attr("height", tv_height);
@@ -186,7 +205,13 @@ d3.gantt = function() {
           .data(uniTasks)
           .enter().append("g")
           .attr("class", "legend")
-          .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+          .attr("transform", function(d, i) { 
+              var tx = 0;
+              if(i % 2 == 1) {
+                  tx = width / 2 - 50;
+              }
+              return "translate(" + tx + "," + parseInt(i / 2, 10) * 20 + ")"; 
+          });
 
         legend.append("rect")
           .attr("x", 18)
@@ -216,14 +241,44 @@ d3.gantt = function() {
 
     }
     
+    function initStackValues(index, tasks) {
+        tempTasks.push(index);
+        
+        for( var k = index + 1; k < tasks.length; k++) {
+            if(!tasks[k].hasOwnProperty("stack_index")) {
+                if(tasks[index].endDate > tasks[k].startDate && tasks[index].taskName == tasks[k].taskName) {
+                    initStackValues(k, tasks);
+                    //break;
+                }
+            }
+        }
+    }
+    
     function gantt(tasks) {
 	
 	    initTimeDomain(tasks);
 	    initAxis();
         
-        // Get Unique tasks for   
+        // init Local Values
+        uniTasks = [];
+        for (var i = 0; i < tasks.length; i++){
+            delete tasks[i]["stack_index"];
+            delete tasks[i]["stack_length"];
+        }
+        
+        // Get Unique tasks and stack values
         for (var i = 0; i < tasks.length; i++){
             uniTasks.push({"status": tasks[i].status, "active": true});
+            
+            if(!tasks[i].hasOwnProperty("stack_index")) {
+                tempTasks = [];
+                initStackValues(i, tasks);
+                tempTasks = getUniqueValues(tempTasks);
+                for(var j = 0;j < tempTasks.length; j++) {
+                    tasks[tempTasks[j]].stack_index = j + 1;
+                    tasks[tempTasks[j]].stack_length = tempTasks.length;
+                } 
+            }
         }
         uniTasks = checkUnique(uniTasks);  
         
@@ -237,17 +292,20 @@ d3.gantt = function() {
             .append("rect")
             .attr("width", width)
             .attr("height", height);
-            
+        
 	    focus = svg.append("g")
             .attr("class", "gantt-chart focus")
-	        .attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
+            //.attr("width", width)
+	        .attr("transform", "translate(" + program_width + ", " + margin.top + ")");
             
         context = svg.append("g")
             .attr("class", "context")
-            .attr("transform", "translate(" + margin2.left + "," + (margin2.top + height + margin.top + margin.bottom) + ")");
+            //.attr("width", width)
+            .attr("transform", "translate(" + program_width + "," + (margin2.top + height + margin.top + margin.bottom) + ")");
             
         brush = d3.svg.brush()
             .x(x2)
+            .extent([extentStart, extentEnd])
             .on("brush", function() {
                 x.domain(brush.empty() ? x2.domain() : brush.extent());
                 
@@ -255,14 +313,15 @@ d3.gantt = function() {
  
                 focus.select(".x.axis").call(xAxis);
             });
+        // 
             
         drawGanttChart(tasks);
             
         focus.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0, " + (height - margin.top - margin.bottom) + ")")
-            .transition()
-            .call(xAxis);
+            .transition();
+            //.call(xAxis);
 
         focus.append("g").attr("class", "y axis").transition().call(yAxis);
 	     
@@ -283,7 +342,12 @@ d3.gantt = function() {
 
         // Draw view tabs for timeline and action
         drawViewTabs(tasks);
-            
+        
+        // Extent Brush Sync for first chart
+        x.domain(brush.empty() ? x2.domain() : brush.extent());
+        drawGanttChart(tasks);
+        focus.select(".x.axis").call(xAxis);
+        
         return gantt;
 
     };
@@ -293,6 +357,16 @@ d3.gantt = function() {
         for ( var i = 0, l = arr.length; i < l; ++i ) {
             if ( !hash.hasOwnProperty(arr[i].status) ) { //it works with objects! in FF, at least
                 hash[ arr[i].status ] = true;
+                result.push(arr[i]);
+            }
+        }
+        return result;
+    }
+    function getUniqueValues(arr) {
+        var hash = {}, result = [];
+        for ( var i = 0, l = arr.length; i < l; ++i ) {
+            if ( !hash.hasOwnProperty(arr[i]) ) { //it works with objects! in FF, at least
+                hash[ arr[i] ] = true;
                 result.push(arr[i]);
             }
         }
